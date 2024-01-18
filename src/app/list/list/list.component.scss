@@ -1,0 +1,27 @@
+ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+
+    .listItem {
+        border: 1px solid black;
+        display: flex;
+        flex-direction: row;
+
+        img {
+            height: 80px;
+        }
+
+        .title {
+            font-size: 20px;
+            padding: 1em;
+            flex: 1;
+        }
+
+        .actionsContainer {
+            display: flex;
+            align-items: center;
+            padding-right: 1em;
+        }
+    }
+}

@@ -1,0 +1,3 @@
+<select [ngModel]="selectedTag" (ngModelChange)="emitPrice($event)">
+    <option *ngFor="let tag of tags" [value]="tag">{{tag}} - {{data[tag] | currency: 'USD'}}</option>
+</select>

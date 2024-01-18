@@ -8,6 +8,9 @@ export const routes: Routes = [
         path: 'b', loadChildren: () => import('./b/b.module').then(m => m.BModule)
     },
     {
+        path: 'list', loadChildren: () => import('./list/list.module').then(m => m.ListModule)
+    },
+    {
         path: '',
         redirectTo: '',
         pathMatch: 'full'

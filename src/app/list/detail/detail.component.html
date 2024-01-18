@@ -1,0 +1,12 @@
+<!-- <pre>
+    {{ item | json }}
+</pre> -->
+<div class="detailContainer" *ngIf="!!item">
+    <photos [media]="item.photos" />
+    <div class="itemDetails">
+        <h5 class="title">{{item.title}}</h5>
+        <prices [data]="item.prices" (selectedPrice)="selectPrice($event)" />
+        <strong class="selectedPrice">{{selectedPrice | currency: 'USD'}}</strong>
+    </div>
+</div>
+<div class="description"></div>

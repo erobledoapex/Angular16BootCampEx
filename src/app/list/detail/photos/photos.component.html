@@ -1,0 +1,6 @@
+<div class="photosContainer">
+    <aside class="smallPhotosPicker">
+        <img *ngFor="let photo of media" class="smallPhoto" [src]="photo" (click)="pickPhoto(photo)">
+    </aside>
+    <img class="mainPhoto" [src]="currentPhoto" />
+</div>

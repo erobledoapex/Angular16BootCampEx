@@ -1,0 +1,30 @@
+.detailContainer {
+    width: 80vw;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 40vw 60vw;
+
+    .itemDetails {
+        padding: 0 1em;
+        display: flex;
+        flex-direction: column;
+
+        .title {
+            font-size: 20px;
+        }
+
+        prices {}
+
+        .selectedPrice {
+            font-size: 18px;
+            margin-top: 1em;
+        }
+    }
+
+    photos {}
+
+}
+
+.description {
+    display: flex;
+}

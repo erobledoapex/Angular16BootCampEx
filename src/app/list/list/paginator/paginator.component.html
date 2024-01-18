@@ -1,0 +1,2 @@
+<button *ngFor="let page of pages" [ngClass]="{ active: currentPage === page }"
+    (click)="selectPage(page)">{{page}}</button>
