@@ -9,6 +9,7 @@ import { PricesComponent } from "./detail/prices/prices.component";
 import { FormsModule } from "@angular/forms";
 import { PaginatorComponent } from "./list/paginator/paginator.component";
 import { FilterByPagePipe } from "./list/filterByPage.pipe";
+import { RoundDecimalsPipe } from "./detail/prices/roundPrice.pipe";
 
 const routes: Routes = [
     { path: '', redirectTo: '', pathMatch: 'full' }, // redirect to ``
@@ -37,7 +38,8 @@ export class ListRoutingModule { }
         PricesComponent,
         PaginatorComponent,
         // pipes
-        FilterByPagePipe
+        FilterByPagePipe,
+        RoundDecimalsPipe
     ],
     providers: [ItemsService]
 }) export class ListModule { }
