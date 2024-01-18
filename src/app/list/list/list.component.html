@@ -1,5 +1,7 @@
+<label for="offers">Ofertas</label>
+<input name="offers" type="checkbox" (ngModelChange)="filterOffers($event)" [ngModel]="offersActive" value="true" />
 <ul>
-    <li *ngFor="let item of items | filterByPage: currentPage: 5: items.length">
+    <li *ngFor="let item of filteredItems | filterByPage: currentPage: 5: filteredItems.length">
         <div class="listItem">
             <img [src]="item.photos[0]" />
             <div class="title">{{item.title}}</div>
@@ -9,4 +11,4 @@
         </div>
     </li>
 </ul>
-<paginator *ngIf="items.length > 0" [totalItems]="items.length" (pageChanged)="changePage($event)" />
+<paginator *ngIf="filteredItems.length > 0" [totalItems]="filteredItems.length" (pageChanged)="changePage($event)" />

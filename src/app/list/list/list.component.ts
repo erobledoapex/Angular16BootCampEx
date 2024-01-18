@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ItemsService } from "../items.service";
+import { ListUtil } from "./list.util";
 
 export interface Item {
     id: string;
@@ -8,6 +9,7 @@ export interface Item {
     prices: { [tag: string]: number },
     photos: string[];
     description: string;
+    offerDiscount?: number;
 }
 
 @Component({
@@ -17,6 +19,8 @@ export interface Item {
 }) export class ListComponent implements OnInit {
     items: Item[] = [];
     currentPage: number = 1;
+    offersActive: boolean = false;
+    filteredItems: Item[] = [];
 
     constructor(
         private router: Router,
@@ -26,6 +30,7 @@ export interface Item {
 
     async ngOnInit() {
         this.items = await this.itemsService.getItems();
+        this.filterItems();
     }
 
     navigateToDetail(id: string) {
@@ -34,5 +39,14 @@ export interface Item {
 
     changePage(page: number) {
         this.currentPage = page;
+    }
+
+    filterOffers(active: boolean) {
+        this.offersActive = active;
+        this.filterItems();
+    }
+
+    private filterItems() {
+        this.filteredItems = ListUtil.filterItems(this.items, this.offersActive);
     }
 }

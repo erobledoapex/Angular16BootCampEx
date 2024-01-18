@@ -20,7 +20,8 @@ export class ItemsService {
                             'https://api.slingacademy.com/public/sample-photos/2.jpeg',
                             'https://api.slingacademy.com/public/sample-photos/3.jpeg',
                         ],
-                        title: 'item 1'
+                        title: 'item 1',
+                        offerDiscount: 20
                     },
                     {
                         id: '2',
@@ -40,7 +41,8 @@ export class ItemsService {
                             summer: 15.43
                         },
                         photos: ['https://api.slingacademy.com/public/sample-photos/5.jpeg'],
-                        title: 'item 3'
+                        title: 'item 3',
+                        offerDiscount: 10
                     },
                     {
                         id: '4',

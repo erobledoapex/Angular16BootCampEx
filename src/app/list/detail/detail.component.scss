@@ -19,6 +19,15 @@
             font-size: 18px;
             margin-top: 1em;
         }
+
+        .offerPrice {
+            color: blue;
+            font-size: 22px;
+        }
+
+        .notOffer {
+            text-decoration: line-through;
+        }
     }
 
     photos {}

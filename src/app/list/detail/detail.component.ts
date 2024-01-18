@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Item } from "../list/list.component";
 import { ItemsService } from "../items.service";
+import { DetailUtil } from "./detail.util";
 
 @Component({
     selector: 'detail',
@@ -12,6 +13,10 @@ import { ItemsService } from "../items.service";
     item?: Item;
     selectedPriceTag?: string;
     selectedPrice?: number;
+
+    get offerPrice(): number {
+        return DetailUtil.getOfferPrice(this.selectedPrice, this.item?.offerDiscount);
+    }
     constructor(
         private router: Router,
         private route: ActivatedRoute,
