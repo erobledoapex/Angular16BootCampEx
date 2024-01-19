@@ -4,6 +4,8 @@ import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { StructuralDirectivesComponent } from "./structural-directives/structural-directives.component";
 import { AttributeDirectivesComponent } from "./attribute-directives/attribute-directives.component";
+import { CapitalizeDirective } from "./custom-directives/capitalize.directive";
+import { CustomDirectivesComponent } from "./custom-directives/custom-directives.component";
 
 const routes: Routes = [
     {
@@ -17,7 +19,11 @@ const routes: Routes = [
     {
         path: 'ex-3',
         component: AttributeDirectivesComponent
-    }
+    },
+    {
+        path: 'ex-4',
+        component: CustomDirectivesComponent
+    },
 ];
 
 
@@ -26,6 +32,9 @@ const routes: Routes = [
     declarations: [
         MyFirstComponent,
         StructuralDirectivesComponent,
-        AttributeDirectivesComponent
+        AttributeDirectivesComponent,
+        CustomDirectivesComponent,
+        // directives
+        CapitalizeDirective
     ]
 }) export class MyFirstModule { }
