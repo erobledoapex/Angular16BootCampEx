@@ -13,7 +13,6 @@ export const routes: Routes = [
     {
         path: 'individual', loadChildren: () => import('./individual/my-first.module').then(m => m.MyFirstModule)
     },
-
     {
         path: '',
         redirectTo: '',
