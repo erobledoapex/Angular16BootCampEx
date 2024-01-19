@@ -31,6 +31,7 @@ import { DetailUtil } from "./detail.util";
     async ngOnInit() {
         if (!!this.itemId) {
             this.item = await this.itemsService.getItem(this.itemId);
+            console.log(this.item);
         }
     }
 

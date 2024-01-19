@@ -1,0 +1,68 @@
+<form [formGroup]="itemForm">
+    <div class="col">
+        <label for="title">Título</label>
+        <input formControlName="title" type="text" />
+        <span class="error" *ngIf="!!itemForm.controls.title.errors && !itemForm.controls.title.pristine">Input
+            inválido, título es requerido</span>
+    </div>
+    <div class="col">
+        <label for="description">Descripción</label>
+        <textarea formControlName="description"></textarea>
+        <span class="error"
+            *ngIf="!!itemForm.controls.description.errors && !itemForm.controls.description.pristine">Input inválido,
+            descripción es
+            requerida</span>
+    </div>
+    <section formArrayName="photos">
+        <div class="row">
+            <strong class="flex-1">Fotos</strong>
+            <button (click)="addPhotoRow()">Agregar foto</button>
+        </div>
+        <div class="col" [formGroupName]="i" *ngFor="let photoRow of photosFA.controls; let i = index">
+            <div class="row">
+                <label for="url">Url de la foto</label>
+                <input formControlName="url" type="text" />
+                <button (click)="deletePhotoRow(i)" *ngIf="photosFA.controls.length > 1">Borrar</button>
+            </div>
+            <span class="error"
+                *ngIf="!!photosFA.controls.at(i)!.get('url')?.errors && !photosFA.controls.at(i)!.get('url')?.pristine">Input
+                inválido, al menos una foto
+                es requerida</span>
+        </div>
+    </section>
+    <section class="pricesSection" formArrayName="prices">
+        <div class="row">
+            <strong class="flex-1">Precios</strong>
+            <button (click)="addPriceRow()">Agregar precio</button>
+        </div>
+        <div class="row" [formGroupName]="i" *ngFor="let priceRow of pricesFA.controls; let i = index">
+            <div class="col">
+                <label for="tag">Tag del precio</label>
+                <input formControlName="tag" type="text" />
+                <span class="error"
+                    *ngIf="!!pricesFA.controls.at(i)!.get('tag')?.errors && !pricesFA.controls.at(i)!.get('tag')?.pristine">Input
+                    inválido, tag de precio es requerido, solo puede contener números y letras y no se puede
+                    repetir</span>
+            </div>
+            <div class="col">
+                <label for="tag">Precio</label>
+                <input formControlName="price" type="number" step=".01" min="0" />
+                <span class="error"
+                    *ngIf="!!pricesFA.controls.at(i)!.get('price')?.errors && !pricesFA.controls.at(i)!.get('price')?.pristine">Input
+                    inválido, precio es requerido</span>
+            </div>
+            <button (click)="deletePriceRow(i)" *ngIf="pricesFA.controls.length > 1">Borrar</button>
+        </div>
+    </section>
+    <div class="col">
+        <label for="offerDiscount">Descuento</label>
+        <input formControlName="offerDiscount" type="number" step="1" max="100" placeholder="%" />
+        <span class="error"
+            *ngIf="!!itemForm.controls.offerDiscount.errors && !itemForm.controls.offerDiscount.pristine">Input
+            inválido, el máximo es 100%</span>
+    </div>
+    <br>
+    <div class="row">
+        <button (click)="createItem()" [disabled]="itemForm.invalid || itemForm.pristine">Crear item</button>
+    </div>
+</form>

@@ -6,10 +6,11 @@ import { DetailComponent } from "./detail/detail.component";
 import { ItemsService } from "./items.service";
 import { PhotosComponent } from "./detail/photos/photos.component";
 import { PricesComponent } from "./detail/prices/prices.component";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { PaginatorComponent } from "./list/paginator/paginator.component";
 import { FilterByPagePipe } from "./list/filterByPage.pipe";
 import { RoundDecimalsPipe } from "./detail/prices/roundPrice.pipe";
+import { NewItemFormComponent } from "./list/new-item-form/new-item-form.component";
 
 const routes: Routes = [
     { path: '', redirectTo: '', pathMatch: 'full' }, // redirect to ``
@@ -30,13 +31,14 @@ const routes: Routes = [
 export class ListRoutingModule { }
 
 @NgModule({
-    imports: [CommonModule, ListRoutingModule, FormsModule],
+    imports: [CommonModule, ListRoutingModule, FormsModule, ReactiveFormsModule],
     declarations: [
         ListComponent,
         DetailComponent,
         PhotosComponent,
         PricesComponent,
         PaginatorComponent,
+        NewItemFormComponent,
         // pipes
         FilterByPagePipe,
         RoundDecimalsPipe

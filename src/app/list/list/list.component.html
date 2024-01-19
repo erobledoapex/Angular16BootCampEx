@@ -1,5 +1,15 @@
-<label for="offers">Ofertas</label>
-<input name="offers" type="checkbox" (ngModelChange)="filterOffers($event)" [ngModel]="offersActive" value="true" />
+<div class="row" id="toggleCreateItemForm">
+    <button (click)="toggleCreateItemForm()">{{showForm ? 'Cancelar' : 'Agregar item'}}</button>
+</div>
+<new-item-form *ngIf="showForm" [newId]="newId" (itemCreated)="handleItemCreated($event)" />
+<div class="col">
+    <label for="search">Búsqueda</label>
+    <input name="search" [formControl]="searchFC" type="text" />
+</div>
+<div class="row">
+    <label for="offers">Ofertas</label>
+    <input name="offers" type="checkbox" (ngModelChange)="filterOffers($event)" [ngModel]="offersActive" value="true" />
+</div>
 <ul>
     <li *ngFor="let item of filteredItems | filterByPage: currentPage: 5: filteredItems.length">
         <div class="listItem">
