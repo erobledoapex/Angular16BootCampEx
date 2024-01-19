@@ -11,6 +11,10 @@ export const routes: Routes = [
         path: 'list', loadChildren: () => import('./list/list.module').then(m => m.ListModule)
     },
     {
+        path: 'individual', loadChildren: () => import('./individual/my-first.module').then(m => m.MyFirstModule)
+    },
+
+    {
         path: '',
         redirectTo: '',
         pathMatch: 'full'
