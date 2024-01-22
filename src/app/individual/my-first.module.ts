@@ -13,6 +13,8 @@ import { OneModuleInjectableService } from "./injectables/one-module-injectable.
 import { MySecondModule } from "./my-second.module";
 import { PipesComponent } from "./pipes/pipes.component";
 import { CapitalizePipe } from "./pipes/capitalize.pipe";
+import { SimpleRouteComponent } from "./routes/simple-route.component";
+import { SlugComponent } from "./routes/slug/slug.component";
 
 const routes: Routes = [
     {
@@ -43,14 +45,26 @@ const routes: Routes = [
         path: 'ex-7',
         component: PipesComponent
     },
+    {
+        path: 'ex-8a',
+        component: SimpleRouteComponent
+    },
+    {
+        path: 'ex-8b',
+        loadChildren: () => import('./routes/simple-routing.module').then(m => m.SimpleRoutingModule)
+    },
+    {
+        path: 'ex-8c/:slug',
+        component: SlugComponent
+    },
 ];
 
 
 @NgModule({
     imports: [
         CommonModule,
-        FormsModule,
         RouterModule.forChild(routes),
+        FormsModule,
         MySecondModule
     ],
     declarations: [
@@ -61,6 +75,8 @@ const routes: Routes = [
         DataBindingComponent,
         InjectablesComponent,
         PipesComponent,
+        SimpleRouteComponent,
+        SlugComponent,
         // directives
         CapitalizeDirective,
         // pipes
