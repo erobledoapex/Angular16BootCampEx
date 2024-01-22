@@ -1,4 +1,5 @@
 import { AfterContentInit, Directive, ElementRef } from "@angular/core";
+import { StringsUtil } from "../../utils/strings.util";
 
 @Directive({
     selector: '[capitalize]',
@@ -7,11 +8,9 @@ import { AfterContentInit, Directive, ElementRef } from "@angular/core";
     constructor(private elmRef: ElementRef) { }
     ngAfterContentInit(): void {
         const text = this.elmRef.nativeElement.innerText as string;
-        this.elmRef.nativeElement.innerText = this.capitalize(text);
+        this.elmRef.nativeElement.innerText = StringsUtil.capitalize(text);
     }
 
-    capitalize(t: string): string {
-        return t.charAt(0).toUpperCase() + t.slice(1);
-    }
+
 
 }

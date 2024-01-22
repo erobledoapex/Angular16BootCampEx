@@ -11,6 +11,8 @@ import { FormsModule } from "@angular/forms";
 import { InjectablesComponent } from "./injectables/injectables.component";
 import { OneModuleInjectableService } from "./injectables/one-module-injectable.service";
 import { MySecondModule } from "./my-second.module";
+import { PipesComponent } from "./pipes/pipes.component";
+import { CapitalizePipe } from "./pipes/capitalize.pipe";
 
 const routes: Routes = [
     {
@@ -37,6 +39,10 @@ const routes: Routes = [
         path: 'ex-6',
         component: InjectablesComponent
     },
+    {
+        path: 'ex-7',
+        component: PipesComponent
+    },
 ];
 
 
@@ -54,8 +60,11 @@ const routes: Routes = [
         CustomDirectivesComponent,
         DataBindingComponent,
         InjectablesComponent,
+        PipesComponent,
         // directives
-        CapitalizeDirective
+        CapitalizeDirective,
+        // pipes
+        CapitalizePipe,
     ],
     providers: [OneModuleInjectableService]
 }) export class MyFirstModule { }
