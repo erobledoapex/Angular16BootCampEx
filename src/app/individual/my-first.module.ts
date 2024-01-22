@@ -15,6 +15,11 @@ import { PipesComponent } from "./pipes/pipes.component";
 import { CapitalizePipe } from "./pipes/capitalize.pipe";
 import { SimpleRouteComponent } from "./routes/simple-route.component";
 import { SlugComponent } from "./routes/slug/slug.component";
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MaterialComponent } from "./material/material.component";
+import { DComponent } from "./material/dialog/dialog.component";
+
 
 const routes: Routes = [
     {
@@ -57,6 +62,10 @@ const routes: Routes = [
         path: 'ex-8c/:slug',
         component: SlugComponent
     },
+    {
+        path: 'ex-9',
+        component: MaterialComponent
+    },
 ];
 
 
@@ -65,7 +74,9 @@ const routes: Routes = [
         CommonModule,
         RouterModule.forChild(routes),
         FormsModule,
-        MySecondModule
+        MySecondModule,
+        MatButtonModule,
+        MatDialogModule
     ],
     declarations: [
         MyFirstComponent,
@@ -77,6 +88,8 @@ const routes: Routes = [
         PipesComponent,
         SimpleRouteComponent,
         SlugComponent,
+        MaterialComponent,
+        DComponent,
         // directives
         CapitalizeDirective,
         // pipes
